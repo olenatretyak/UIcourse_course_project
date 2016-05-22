@@ -20,12 +20,10 @@
                 "speed": "13,4",
                 "imgPath": "images/Sportage.png",
                 "sliderImages": [
-                    { 
-                        "slide1": "images/01-slide-Sportage.png",
-                        "slide2": "images/02-slide-Sportage.png",
-                        "slide3": "images/03-slide-Sportage.png",
-                        "slide4": "images/04-slide-Sportage.png",
-                    }
+                   "images/01-slide-Sportage.png",
+                   "images/02-slide-Sportage.png",
+                   "images/03-slide-Sportage.png",
+                   "images/04-slide-Sportage.png",
                 ],
                 "city": 7.2,
                 "highway": 7.2,
@@ -59,21 +57,21 @@
         $rootScope.testDrives = [
             {   
                 "carId": 1,
-                "name": "Вася",
+                "name": "User1",
                 "city": 7,
                 "highway": 8,
                 "combined": 6,
             },
             {
                 "carId": 1,
-                "name": "Пупкін",
+                "name": "User2",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,
             },
             {
                 "carId": 2,
-                "name": "Пупкін",
+                "name": "User1",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,

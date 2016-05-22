@@ -68,13 +68,15 @@
     <div class="container">
       <div class="recent-car-content">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 car-slider">
           <img src="{{currentImg}}">
-          <ul>
-            <li ng-repeat="imgPath in car.sliderImages">
-              <img src="{{imgPath}}" width=115 ng-click="setSlide(imgPath)">
-            </li>
-          </ul>
+          <div class="mini-images">
+            <ul>
+              <li ng-repeat="imgPath in car.sliderImages">
+                <img src="{{imgPath}}" width=115 ng-click="setSlide(imgPath)">
+              </li>
+            </ul>
+          </div>
           <!--   <div id="car-flexslider" class="car-flexslider">
               
           //   <div ng-repeat="slide in car.sliderImages" class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
@@ -121,17 +123,16 @@
                 </div>
                 <div class="ico-speed">
                   <img src="images/03.png">
-                  <span>до 100км/г,с<br>
-                  {{car.speed}}</span>
+                  <span>{{car.speed}} c до 100км/г,с </span>
                 </div>
-                <div class="ico-speed">
+                <div class="ico-engine">
                   <img src="images/04.png">
                   <span>{{car.engineType}}</span>
                 </div>
               </div>
               
               <div class="data-list">
-                <table class="table">
+                <table class="table compare">
                   <tr>
                     <th>&nbsp;</th>
                     <th>Дані виробника</th>
@@ -139,7 +140,7 @@
                   </tr>
                   <tbody>
                     <tr>
-                      <td>Споживання палива літрів на 100км:</td>
+                      <th>Споживання палива літрів на 100км:</th>
                     </tr>
                     <tr>
                       <th scope="row">Міський цикл</th>
@@ -280,7 +281,6 @@
     <div class="buttons-container">
       <button type="button" class="btn btn-danger">Список автомобілів</button>
       <button type="button" class="btn btn-danger">Знайти дилера</button>
-      <button type="button" class="btn btn-danger">Тест-драйв</button>
     </div>
       
   </div>

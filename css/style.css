@@ -129,6 +129,21 @@ a:hover, a:focus{
   font-size: 13px;
 }
 
+.mini-images {
+  display: flex;
+  justify-content: center;
+  margin-left: 7px;
+}
+
+.car-slider li.ng-scope {
+  float: left;
+  margin: 24px 11px;
+}
+
+.car-details {
+  margin-left: 10px;
+}
+
 .car-details h4 {
   margin-top: 10px;
   font-size: 20px;
@@ -158,8 +173,16 @@ a:hover, a:focus{
   font-weight: bold;
 }
 
-.ico-box-horse, .ico-speed {
+.ico-box div {
   float: left;
+}
+
+.ico-box-horse, .ico-speed, .ico-engine {
+  float: left;
+}
+
+.ico-speed, .ico-engine {
+  margin-left: 25px;
 }
 
 .contact-info {
@@ -172,6 +195,10 @@ a:hover, a:focus{
 
 .users-list {
   margin-top: 60px;
+}
+
+.compare tr td {
+  text-align: center;
 }
 
 /* FOOTER */
