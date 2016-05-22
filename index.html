@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html data-ng-app="lits.kia-testdrive-app">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  
+  <title>Курсовий проект</title>
+
+  <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css' media='all'>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-route.min.js"></script>
+
+  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="app/app.routes.js"></script>
+  <script type="text/javascript" src="app/cars-service.js"></script>
+  <script type="text/javascript" src="app/main-page.controller.js"></script>
+  <script type="text/javascript" src="app/car-item.controller.js"></script>
+  <script type="text/javascript" src="app/login-controller.js"></script>
+
+</head>
+<body>
+<!-- MAIN PART -->
+
+<script type=text/ng-template id="main.html">
+  <div class="main-wrap" ng-controller="MainPageController">
+    <div class="main-text">
+      <h3>Оберіть автомобіль для тест-драйву</h3>
+    </div>
+
+    <div class="cars-blocks">
+      <div class="row">
+
+        <div class="col-md-4" ng-repeat="car in dataCars">
+          <div class="car-item">
+            <a href="#/car-items/{{car.id}}">
+              <img src={{car.imgPath}} alt="KIA Sportage">
+            </a>
+            <div class="down-content">
+              <a href="#/car-items/{{car.id}}">
+                <h4>{{car.name}}</h4>
+              </a>
+              <span>{{car.price}}</span>
+              <div class="line-dec"></div>
+              <p>{{car.description}}</p>
+              <ul class="car-info">
+                <li><span>Рік</span><p>{{car.year}}</p></li>
+                <li><span>КПП</span><p>{{car.KPP}}</p></li>
+                <li><span>Двигун</span><p>{{car.engineType}}</p></li>
+                <li><span>Привід</span><p>{{car.driveWheels}}</p></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- CAR ITEM -->
+
+<script type=text/ng-template id="car-item.html">
+  <div class="main-wrap" ng-controller="CarItemController">
+    <div class="container">
+      <div class="recent-car-content">
+        <div class="row">
+          <div class="col-md-6">
+          <img src="{{currentImg}}">
+          <ul>
+            <li ng-repeat="imgPath in car.sliderImages">
+              <img src="{{imgPath}}" width=115 ng-click="setSlide(imgPath)">
+            </li>
+          </ul>
+          <!--   <div id="car-flexslider" class="car-flexslider">
+              
+          //   <div ng-repeat="slide in car.sliderImages" class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+          //       <li class="flex-active-slide" style="width: 555px; float: left; display: block;">
+          //         <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 555px; float: left; display: block;">
+          //          <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 555px; float: left; display: block;">
+          //          <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 555px; float: left; display: block;">
+          //          <img src="{{slide}}" draggable="false">
+          //       </li>
+          //     </ul></div></div>
+          //   <div id="car-carousel" class="car-flexslider">
+              
+          //   <div ng-repeat="slide in car.sliderImages" class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+          //       <li class="flex-active-slide" style="width: 115px; float: left; display: block;">
+          //         <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 115px; float: left; display: block;">
+          //         <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 115px; float: left; display: block;">
+          //         <img src="{{slide}}" draggable="false">
+          //       </li>
+          //       <li style="width: 115px; float: left; display: block;">
+          //         <img src="{{slide}}" draggable="false">
+          //       </li>
+          //     </ul></div></div>-->
+          </div>
+
+          <div class="col-md-6">
+            <div class="car-details">
+              <h4>{{car.name}}</h4>
+              <span>{{car.price}}</span>
+              <div class="line-dec"></div>
+              <div class="ico-box">
+                <div class="ico-box-horse">
+                  <img src="images/horse.png">
+                  <span>{{car.power}}</span>
+                </div>
+                <div class="ico-speed">
+                  <img src="images/03.png">
+                  <span>до 100км/г,с<br>
+                  {{car.speed}}</span>
+                </div>
+                <div class="ico-speed">
+                  <img src="images/04.png">
+                  <span>{{car.engineType}}</span>
+                </div>
+              </div>
+              
+              <div class="data-list">
+                <table class="table">
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Дані виробника</th>
+                    <th>Результати тест-драйвів</th>
+                  </tr>
+                  <tbody>
+                    <tr>
+                      <td>Споживання палива літрів на 100км:</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Міський цикл</th>
+                      <td>{{car.city}}</td>
+                      <td>{{averageCity()}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Траса</th>
+                      <td>{{car.highway}}</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Комбінований цикл</th>
+                      <td>{{car.combined}}</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="contact-info">
+                <div class="row">
+                  <div class="info-buttons-container">
+                    <a href="http://kia.ua/testdrive.html">
+                      <button type="button" class="btn btn-danger">Записатись на тест-драйв</button>
+                    </a>
+                    <a href="http://kia.ua/dir/sportage_new.html">
+                      <button type="button" class="btn btn-danger model-details">Дізнатись більше про автомобіль</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- USER LIST -->
+
+      <div class="users-list">
+        <div class="container-list">
+          <table class="table table-condensed">
+            <tr>
+              <th>#</th>
+              <th>Учасник</th>
+              <th>Міський цикл</th>
+              <th>Траса</th>
+              <th>Комбінований цикл</th>
+            </tr>
+            <tbody>
+              <tr ng-repeat="user in testDrives"> 
+                <th scope="row">{{$index+1}}</th> 
+                <td class="user-name">{{user.name}}</td> 
+                <td>{{user.city}}</td> 
+                <td>{{user.highway}}</td> 
+                <td>{{user.combined}}</td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FORM FOR TEST-DRIVE -->
+
+      <div ng-show="showForm"> 
+        <form class="form-horizontal" ng-submit="addTestDrive()">
+          <h3>Дані учасника тест-драйву</h3>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Учасник</label>
+            <div class="col-sm-10">
+              <input type="name" class="form-control" id="inputName" placeholder="Введіть ім'я учасника" ng-model="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputCityResult" class="col-sm-2 control-label">Міський цикл</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputCityResult" ng-model="city">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputHighwayResult" class="col-sm-2 control-label">Траса</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputHighwayResult" ng-model="highway">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputСombinedResult" class="col-sm-2 control-label">Комбінований цикл</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputСombinedResult" ng-model="combined">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Додати до списку</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</script>
+
+<!-- LOGIN -->
+
+<script type=text/ng-template id="login.html">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <form ng-class="{'has-error': showErrors}">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input ng-model="email" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input ng-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <p ng-show="showErrors"><font color="#009ACD">Дані не вірні</font></p>
+        <button type="submit" class="btn btn-default" ng-click="login()">Submit</button>
+      </form>
+    </div>
+  </div>
+</script>
+
+
+
+<!-- HEADER -->
+
+<div class="top-wrap">
+  <div class="header">
+    <a href="#/">
+      <img src="images/logo.png" class="logo" alt="KIA logo">
+    </a>
+    
+    <div class="buttons-container">
+      <button type="button" class="btn btn-danger">Список автомобілів</button>
+      <button type="button" class="btn btn-danger">Знайти дилера</button>
+      <button type="button" class="btn btn-danger">Тест-драйв</button>
+    </div>
+      
+  </div>
+</div>
+
+<div ng-view></div>
+
+<!-- FOOTER -->
+
+<div class="ft-wrap">
+  <div class="footer">
+    <div>
+      <ul class="ft-links">
+        <li><a rel="nofolow" href="http://kia.synapticdigital.com/">Бібліотека мультимедія</a></li>
+        <li><a rel="nofolow" href="http://www.kia.com/worldwide/">Міжнародний сайт</a></li>
+      </ul>
+    </div>
+
+      <div class="copyright">
+        <div class="ft-copy-text" style="height: 65px">
+          <span>© 2009-2013 ФАЛЬКОН-АВТО</span>
+          <p>Гaряча лінія: 0-800-502-909<br>Дзвiнки зi стацiонарних телефонiв в межах України безкоштовнi,<br>з мобільних телефонів, згідно тарифів операторів.</p>
+        </div>
+        <div class="ft-copy-soc">
+          <a rel="nofolow" href="https://www.facebook.com/kia.ua" class="btn-soc fb">
+            <img src="images/ft-fb-icon.png">
+          </a>
+          <a rel="nofolow" href="https://plus.google.com/116658168713926135038" class="btn-soc gplus">
+            <img src="images/ft-gplus-icon.gif">
+          </a>
+          <a rel="nofolow" href="http://www.youtube.com/user/kiaukraine" class="btn-soc yt">
+            <img src="images/ft-yt-icon.png">
+          </a>
+          <a rel="nofolow" href="https://twitter.com/KiaUkraine" class="btn-soc tw">
+            <img src="images/footer-twitter.gif">
+          </a>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+  
+
+</body>
+</html>

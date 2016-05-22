@@ -1,0 +1,33 @@
+"cars": [
+  {
+    "id": 1,
+    "name": "KIA Sportage",
+    "price": "від 532 860 грн.",
+    "description": "Абсолютно новий Sportage: стильний та сучасний дизайн",
+    "year": 2016,
+    "KPP": "6 МТ", 
+    "engineType": "1.6 GDI",
+    "power": "132-185 к.с.",
+    "speed": "13,4",
+    "imgPath": "images/car1.png",
+    "city": "7,2",
+    "highway": "7,2",
+    "combined": "5,6"
+  }
+
+  {
+    "id": 2,
+    "name": "KIA Optima",
+    "price": "від 747 000 грн.",
+    "description": "New Kia Optima: бізнес-седан, який пасує до вашого стилю",
+    "year": 2016,
+    "KPP": "7 DCT", 
+    "engineType": "U2 1.7 VGT",
+    "power": "141 к.с.",
+    "speed": "11",
+    "imgPath": "images/",
+    "city": "6,2",
+    "highway": "4,5",
+    "combined": "5,1"
+  }
+]

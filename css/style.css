@@ -1,0 +1,224 @@
+/* GENERAL STYLES */
+
+@font-face {
+    font-family: "FordAntennaRegular"; 
+    src: url(../fonts/FordAntennaRegular.otf); 
+   }
+
+body {
+  font-family: FordAntennaRegular;
+  font-size: 100%;
+}
+
+.header, .main-wrap, .footer {
+  margin: 0 auto;
+  max-width: 1129px;
+}
+
+.header {
+  height: 80px;
+}
+
+a:hover, a:focus{  
+  color: inherit !important;
+  text-decoration: inherit !important;
+}
+
+
+
+/* HEADER */
+
+.logo {
+  width: 100px;
+  margin-top: 13px;
+}
+
+.buttons-container {
+  margin-top: 23px;
+  display: inline-block;
+  float: right;
+}
+
+/* MAIN */
+
+.top-wrap {
+  width: 100%;
+  background: linear-gradient(to top, #f7f7f7, #ffffff);
+  border-top: 3px solid #c44940;
+  border-bottom: 1px solid #dedede;
+}
+
+.main-text {
+  height: 50px;
+}
+
+.car-item {
+  border: 1px solid #eeeeee;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.car-item img {
+  width: 100%;
+}
+
+.car-item .down-content {
+    text-align: center;
+}
+
+.down-content a {
+  color: #222222;
+}
+
+.car-item .down-content h4 {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.car-item .down-content span {
+  font-size: 15px;
+  font-weight: 700;
+  color: #18428c;
+ }
+
+ .car-item .down-content .line-dec {
+  margin-top: 15px;
+  width: 40px;
+  height: 2px;
+  background-color: #eeeeee;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.car-item .down-content p {
+    margin-top: 20px;
+}
+
+.car-item .down-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.car-item .down-content ul li {
+  display: inline-block;
+  margin: 10px 12px 0px 12px;
+}
+
+.car-item .down-content ul li span {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #9a9a9a;
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 10px;
+}
+
+.car-item .down-content ul li p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #303F58;
+  margin-top: 15px;
+}
+
+/* MAIN 2 */
+
+.data-list {
+  padding-top: 72px;
+  font-size: 13px;
+}
+
+.car-details h4 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.car-details span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #18428c;
+}
+
+.car-details .line-dec {
+  margin-top: 15px;
+  width: 40px;
+  height: 2px;
+  background-color: #eeeeee;
+}
+
+.ico-box {
+  margin: 17px 0 37px 0;
+}
+
+.ico-box span {
+  color: #8A8A8A;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.ico-box-horse, .ico-speed {
+  float: left;
+}
+
+.contact-info {
+  margin-left: 16px;
+}
+
+.model-details {
+  margin-left: 60px;
+}
+
+.users-list {
+  margin-top: 60px;
+}
+
+/* FOOTER */
+
+.ft-wrap {
+  width: 100%;
+  background: linear-gradient(to top, #f7f7f7, #ffffff);
+  border-top: 3px solid #c44940;
+  border-bottom: 44px solid #fff;
+}
+
+.footer {
+  height: 140px;
+}
+
+.footer .ft-links {
+  padding-top: 13px;
+}
+
+.footer .ft-links li {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.footer .ft-links li a {
+  color: #333;
+  font-size: 13px;
+}
+
+.copyright {
+    background: transparent url(images/ft-copy-icon.png) no-repeat left center;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 43px;
+}
+
+.ft-copy-text {
+  float: left;
+  height: 65px;
+  width: 464px;
+  font-size: 10px;
+  padding: 10px 0;
+}
+
+.ft-copy-soc {
+  float: right;
+  margin-right: 44px;
+}
