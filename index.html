@@ -150,12 +150,12 @@
                     <tr>
                       <th scope="row">Траса</th>
                       <td>{{car.highway}}</td>
-                      <td></td>
+                      <td>{{averageHighway()}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Комбінований цикл</th>
                       <td>{{car.combined}}</td>
-                      <td></td>
+                      <td>{{averageCombined()}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -279,8 +279,8 @@
     </a>
     
     <div class="buttons-container">
-      <button type="button" class="btn btn-danger">Список автомобілів</button>
-      <button type="button" class="btn btn-danger">Знайти дилера</button>
+      <!--<button type="button" class="btn btn-danger">Список автомобілів</button> -->
+      <a href="http://kia.ua/dealers.html"><button type="button" class="btn btn-danger">Знайти дилера</button></a>
     </div>
       
   </div>

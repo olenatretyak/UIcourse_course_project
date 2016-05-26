@@ -22,6 +22,18 @@
         return sumCity / $scope.testDrives.length;
       }
 
+      $scope.averageHighway = function() {
+        var sumHighway = $scope.testDrives.map(function(testDrive) { return testDrive.highway; })
+                            .reduce(function(a, b){ return a+b })
+        return sumHighway / $scope.testDrives.length;
+      }
+
+      $scope.averageCombined = function() {
+        var sumCombined = $scope.testDrives.map(function(testDrive) { return testDrive.combined; })
+                            .reduce(function(a, b){ return a+b })
+        return sumCombined / $scope.testDrives.length;
+      }
+
       $scope.addTestDrive = function() {
         var data = {
           carId:    $routeParams.id,
