@@ -6,6 +6,8 @@
 
     function KiaCarsDataService($rootScope) {
         
+        // window.rootScope = $rootScope; 
+
         $rootScope.cars = [
               {
                 "id": 1,
@@ -146,50 +148,58 @@
               }
             ];
 
-        $rootScope.testDrives = [
+        var defaultTestDrives = [
             {   
                 "carId": 1,
-                "name": "User1",
+                "name": "Driver1",
                 "city": 7,
                 "highway": 8,
                 "combined": 6,
             },
             {
                 "carId": 1,
-                "name": "User2",
+                "name": "Driver2",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,
             },
             {
                 "carId": 2,
-                "name": "User1",
+                "name": "Driver1",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,
             },
             {   
                 "carId": 3,
-                "name": "User1",
+                "name": "Driver1",
                 "city": 7,
                 "highway": 8,
                 "combined": 6,
             },
             {
                 "carId": 3,
-                "name": "User2",
+                "name": "Driver2",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,
             },
             {
                 "carId": 4,
-                "name": "User1",
+                "name": "Driver1",
                 "city": 8,
                 "highway": 9,
                 "combined": 10,
             }
         ]
+
+        var savedTestDrives = localStorage.getItem('testDrives'); 
+        if(savedTestDrives) { 
+            $rootScope.testDrives = JSON.parse(savedTestDrives);
+        } else {
+            $rootScope.testDrives = defaultTestDrives;
+        }
+
         
 
         return {
@@ -213,6 +223,8 @@
         
         function addTestDrive(data) {
             $rootScope.testDrives.push(data);
+            var testDrivesJson = JSON.stringify($rootScope.testDrives);
+            localStorage.setItem('testDrives', testDrivesJson); //-?
         }
     }
 }());

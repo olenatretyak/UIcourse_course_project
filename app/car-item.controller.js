@@ -3,7 +3,7 @@
     angular.module('lits.kia-testdrive-app')
       .controller('CarItemController', CarItemController);
 
-    function CarItemController($scope, $routeParams, KiaCarsDataService) {
+    function CarItemController($scope, $routeParams, KiaCarsDataService) { 
       $scope.car = KiaCarsDataService
         .getCars() // [{}, {}]
         .filter( function(element) {return element.id == $routeParams.id} ) [0]// [{}]
@@ -16,22 +16,11 @@
 
       $scope.testDrives = KiaCarsDataService.getTestDrives($routeParams.id);
 
-      $scope.averageCity = function() {
-        var sumCity = $scope.testDrives.map(function(testDrive) { return testDrive.city; })
-                            .reduce(function(a, b){ return a+b })
-        return sumCity / $scope.testDrives.length;
-      }
-
-      $scope.averageHighway = function() {
-        var sumHighway = $scope.testDrives.map(function(testDrive) { return testDrive.highway; })
-                            .reduce(function(a, b){ return a+b })
-        return sumHighway / $scope.testDrives.length;
-      }
-
-      $scope.averageCombined = function() {
-        var sumCombined = $scope.testDrives.map(function(testDrive) { return testDrive.combined; })
-                            .reduce(function(a, b){ return a+b })
-        return sumCombined / $scope.testDrives.length;
+      $scope.average = function(testDriveType) {
+        var sum = $scope.testDrives.map(function(testDrive) { return testDrive [testDriveType]; })
+                            .reduce(function(a, b){ return a+b });
+        var avg = sum / $scope.testDrives.length;                  
+        return Math.round( avg * 10) / 10;
       }
 
       $scope.addTestDrive = function() {
@@ -42,11 +31,17 @@
           highway:  parseFloat($scope.highway),
           combined: parseFloat($scope.combined),
         }
-        $scope.testDrives.push(data);
-        KiaCarsDataService.addTestDrive(data);
+        $scope.testDrives.push(data); 
+        KiaCarsDataService.addTestDrive(data);  
+
+        $scope.name = "";
+        $scope.city = "";
+        $scope.highway = "";
+        $scope.combined = "";
       }
 
-      $scope.showForm = window.isLoggedIn;
+
+      $scope.showForm = window.isLoggedIn; 
     }  
 
 

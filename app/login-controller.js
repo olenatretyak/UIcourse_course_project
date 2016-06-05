@@ -7,7 +7,7 @@
       $scope.login = function () {
         if ($scope.email == "1111@gmail.com" && $scope.password == "1111") {
           window.isLoggedIn = true;
-          $location.path( "/");
+          $location.path( "/"); //-? 
           console.log('correct')
         } else {
           console.log('wrong')

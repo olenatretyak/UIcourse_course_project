@@ -69,46 +69,14 @@
       <div class="recent-car-content">
         <div class="row">
           <div class="col-md-6 car-slider">
-          <img src="{{currentImg}}">
-          <div class="mini-images">
-            <ul>
-              <li ng-repeat="imgPath in car.sliderImages">
-                <img src="{{imgPath}}" width=115 ng-click="setSlide(imgPath)">
-              </li>
-            </ul>
-          </div>
-          <!--   <div id="car-flexslider" class="car-flexslider">
-              
-          //   <div ng-repeat="slide in car.sliderImages" class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-          //       <li class="flex-active-slide" style="width: 555px; float: left; display: block;">
-          //         <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 555px; float: left; display: block;">
-          //          <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 555px; float: left; display: block;">
-          //          <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 555px; float: left; display: block;">
-          //          <img src="{{slide}}" draggable="false">
-          //       </li>
-          //     </ul></div></div>
-          //   <div id="car-carousel" class="car-flexslider">
-              
-          //   <div ng-repeat="slide in car.sliderImages" class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-          //       <li class="flex-active-slide" style="width: 115px; float: left; display: block;">
-          //         <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 115px; float: left; display: block;">
-          //         <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 115px; float: left; display: block;">
-          //         <img src="{{slide}}" draggable="false">
-          //       </li>
-          //       <li style="width: 115px; float: left; display: block;">
-          //         <img src="{{slide}}" draggable="false">
-          //       </li>
-          //     </ul></div></div>-->
+            <img src="{{currentImg}}">
+            <div class="mini-images">
+              <ul>
+                <li ng-repeat="imgPath in car.sliderImages">
+                  <img src="{{imgPath}}" width=115 ng-click="setSlide(imgPath)">
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="col-md-6">
@@ -145,17 +113,17 @@
                     <tr>
                       <th scope="row">Міський цикл</th>
                       <td>{{car.city}}</td>
-                      <td>{{averageCity()}}</td>
+                      <td>{{average("city")}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Траса</th>
                       <td>{{car.highway}}</td>
-                      <td>{{averageHighway()}}</td>
+                      <td>{{average("highway")}}</td>
                     </tr>
                     <tr>
                       <th scope="row">Комбінований цикл</th>
                       <td>{{car.combined}}</td>
-                      <td>{{averageCombined()}}</td>
+                      <td>{{average("combined")}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -189,11 +157,11 @@
               <th>#</th>
               <th>Учасник</th>
               <th>Міський цикл</th>
-              <th>Траса</th>
+              <th class="highway-row">Траса</th>
               <th>Комбінований цикл</th>
             </tr>
             <tbody>
-              <tr ng-repeat="user in testDrives"> 
+              <tr ng-repeat="user in testDrives track by $index"> 
                 <th scope="row">{{$index+1}}</th> 
                 <td class="user-name">{{user.name}}</td> 
                 <td>{{user.city}}</td> 

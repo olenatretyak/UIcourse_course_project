@@ -129,6 +129,10 @@ a:hover, a:focus{
   font-size: 13px;
 }
 
+.highway-row {
+  padding-right: 49px !important;
+}
+
 .mini-images {
   display: flex;
   justify-content: center;
@@ -200,6 +204,7 @@ a:hover, a:focus{
 .compare tr td {
   text-align: center;
 }
+
 
 /* FOOTER */
 
